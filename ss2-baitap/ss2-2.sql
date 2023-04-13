@@ -3,7 +3,7 @@ USE merchandise_management;
 CREATE TABLE customer (
 id INT PRIMARY KEY AUTO_INCREMENT ,
 name_customer VARCHAR(45) NOT NULL ,
-age INT CHECK (age > 16)
+age INT CHECK (age > 16) NOT NULL
 );
 
 CREATE TABLE order_product(
