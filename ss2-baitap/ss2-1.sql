@@ -51,18 +51,17 @@ CREATE TABLE chi_tiet_don_hang (
 );
 
 CREATE TABLE nha_cung_cap (
-    ma_nha_cung_cap INT PRIMARY KEY AUTO_INCREMENT,
+    ma_nha_cung_cap VARCHAR(20) PRIMARY KEY ,
     ten_nha_cung_cap VARCHAR(45) NOT NULL,
-    dia_chi VARCHAR(45),
-    so_dien_thoai VARCHAR(45)
+    dia_chi VARCHAR(45) NOT NULL,
+    so_dien_thoai VARCHAR (15)UNIQUE
 );
 
 CREATE TABLE so_dien_thoai (
-    ma_so_dien_thoai INT PRIMARY KEY AUTO_INCREMENT,
-    so_dien_thoai VARCHAR(45),
-    ma_nha_cung_cap INT,
+    so_dien_thoai VARCHAR(15) PRIMARY KEY AUTO_INCREMENT,
+    ma_nha_cung_cap VARCHAR(20),
     FOREIGN KEY (ma_nha_cung_cap)
-        REFERENCES nha_cung_cap (ma_nha_cung_cap)
+	REFERENCES nha_cung_cap (ma_nha_cung_cap)
 );
 
 ALTER TABLE don_dat_hang
