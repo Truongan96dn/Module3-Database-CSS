@@ -23,7 +23,7 @@ SELECT
     dich_vu.ten_dich_vu,
     hop_dong.ngay_lam_hop_dong,
     hop_dong.ngay_ket_thuc,
-    (ifnull((hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia) , 0)  + dich_vu.chi_phi_thue) AS tong_so_tien
+    ifnull((ifnull((hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia) , 0)  + dich_vu.chi_phi_thue),0) AS tong_so_tien
 FROM
     khach_hang
         JOIN
