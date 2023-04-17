@@ -144,9 +144,10 @@ ma_hop_dong INT,
 ma_dich_vu_di_kem INT);
 INSERT INTO hop_dong_chi_tiet VALUES(1,5,2,4),
 (2,8,3,5),
-(3,7,2,6),
+(3,15,2,6),
 (4,1,3,1),
-(5,12,3,2),
-(6,3,1,2),
-(7,2,12,2);
+(5,11,3,2),
+(6,1,1,3),
+(7,2,1,2),
+(8,2,12,2);
 SELECT * FROM hop_dong_chi_tiet;

@@ -32,7 +32,7 @@ AND (dv.ma_dich_vu NOT IN (SELECT
             YEAR(h.ngay_lam_hop_dong) = 2021 AND MONTH(h.ngay_lam_hop_dong) IN (1,2,3,4,5,6)))
 GROUP BY hdct.ma_hop_dong;
 -- SQL 13 Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
-SELECT dvdk.*,max(hdct.so_luong) AS dvdk_duoc_su_dung_nhieu_nhat 
+SELECT dvdk.*,sum(hdct.so_luong) AS dvdk_duoc_su_dung_nhieu_nhat 
 FROM khach_hang k
 JOIN hop_dong h  ON k.ma_khach_hang = h.ma_khach_hang
 JOIN dich_vu dv ON dv.ma_dich_vu = h.ma_dich_vu
@@ -42,7 +42,7 @@ JOIN hop_dong_chi_tiet hdct ON hdct.ma_hop_dong = h.ma_hop_dong
 JOIN dich_vu_di_kem dvdk ON hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
 GROUP BY dvdk.ma_dich_vu_di_kem
 ORDER BY dvdk_duoc_su_dung_nhieu_nhat DESC
-LIMIT 1;
+LIMIT 2;
 -- SQL 14 Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, 
 -- so_lan_su_dung (được tính dựa trên việc count các ma_dich_vu_di_kem).
 -- SELECT hd.ma_hop_dong, ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem, COUNT(hdct.so_luong) AS so_lan_su_dung;
@@ -72,6 +72,7 @@ JOIN bo_phan bp ON  bp.ma_bo_phan = nv.ma_bo_phan
 WHERE (YEAR(hd.ngay_lam_hop_dong) BETWEEN 2020 AND 2021)
 GROUP BY hd.ma_nhan_vien
 HAVING COUNT(hd.ma_nhan_vien) <=3;
+
 
 
 
