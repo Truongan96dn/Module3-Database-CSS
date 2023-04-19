@@ -46,7 +46,16 @@ SET sql_safe_updates = 0;
 SELECT * FROM khach_hang
 WHERE `status` = 0;
 
--- SQL 18
+-- SQL 21
+CREATE VIEW v_nhan_vien AS SELECT nv.dia_chi,nv.ho_ten,hd.ngay_lam_hop_dong FROM nhan_vien AS nv
+JOIN hop_dong AS hd ON hd.ma_nhan_vien = nv.ma_nhan_vien
+WHERE nv.dia_chi LIKE "%Đà Nẵng" AND (nv.dia_chi LIKE "%Yên Bái%" OR nv.dia_chi LIKE "%Hàm Nghi%") 
+AND hd.ngay_lam_hop_dong = "2019-12-12" 
+;
+DROP VIEW v_nhan_vien;
+SELECT * FROM v_nhan_vien;
+-- SQL 22
+
 
 
 

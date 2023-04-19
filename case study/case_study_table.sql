@@ -59,7 +59,8 @@ INSERT INTO nhan_vien VALUES(1,'Nguyễn Văn An','1970-11-07','456231786',10000
 (7,'Nguyễn Hữu Hà','1993-01-01','534323231',8000000,'0941234553','nhh0101@gmail.com','4 Nguyễn Chí Thanh, Huế',2,3,2,1),
 (8,'Nguyễn Hà Đông','1989-09-03','234414123',9000000,'0642123111','donghanguyen@gmail.com','111 Hùng Vương, Hà Nội',2,4,4,1),
 (9,'Tòng Hoang','1982-09-03','256781231',6000000,'0245144444','hoangtong@gmail.com','213 Hàm Nghi, Đà Nẵng',2,4,4,1),
-(10,'Nguyễn Công Đạo','1994-01-08','755434343',8000000,	'0988767111','nguyencongdao12@gmail.com','6 Hoà Khánh, Đồng Nai',2,3,2,1);
+(10,'Nguyễn Công Đạo','1994-01-08','755434343',8000000,	'0988767111','nguyencongdao12@gmail.com','6 Hoà Khánh, Đồng Nai',2,3,2,1),
+(11,'Hồ Trường An','1996-02-01','755431143',100000000,	'0938266377','hotruongan@gmail.com','56 Hàm Nghi,Đà Nẵng',2,3,2,1);
 SELECT * FROM nhan_vien;
 CREATE TABLE khach_hang(
 ma_khach_hang INT PRIMARY KEY,
@@ -137,7 +138,8 @@ INSERT INTO hop_dong VALUES(1,	"2020-12-08",	"2020-12-08",	0,	3,	1,	3),
 (9,	"2020-11-19",	"2020-11-19",	0,	3,	4,	3),
 (10,	"2021-04-12",	"2021-04-14",	0,	10,	3,	5),
 (11,	"2021-04-25",	"2021-04-25",	0,	2,	2,	1),
-(12,	"2021-05-25",	"2021-05-27",	0,	7,	10,	1);
+(12,	"2021-05-25",	"2021-05-27",	0,	7,	10,	1),
+(13,	"2019-12-12",	"2019-12-14",	0,	11,	10,	1);
 SELECT * FROM hop_dong;
 CREATE TABLE hop_dong_chi_tiet(
 ma_hop_dong_chi_tiet INT PRIMARY KEY,
