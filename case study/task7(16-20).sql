@@ -55,6 +55,21 @@ AND hd.ngay_lam_hop_dong = "2019-12-12"
 DROP VIEW v_nhan_vien;
 SELECT * FROM v_nhan_vien;
 -- SQL 22
+UPDATE v_nhan_vien SET dia_chi = "Liên Chiểu"; 
+-- SQL 23
+DELIMITER //
+CREATE PROCEDURE sp_xoa_khach_hang(IN kh_id INT)
+    BEGIN
+    UPDATE khach_hang kh SET `status` = 0
+    WHERE kh.ma_khach_hang = kh_id AND `status` = 1;
+    END// 
+DELIMITER ;
+CALL sp_xoa_khach_hang(5);
+SELECT * FROM khach_hang
+WHERE `status` = 0;
+-- SQL 24
+
+
 
 
 

@@ -11,7 +11,10 @@ productStatus BIT);
 INSERT INTO products VALUES (1,"p123","IPhone12",999,1,"Black",1),
 (2,"p124","IPhone13",1000,2,"White",1),
 (3,"p125","IPhone14",1500,4,"Grey",1);
-SELECT * FROM products;
+SELECT 
+    *
+FROM
+    products;
 -- unique index;
 CREATE UNIQUE INDEX i_productCode ON products(productCode);
 EXPLAIN SELECT productCode, productName, productPrice FROM products WHERE productCode = "p125";
@@ -19,10 +22,15 @@ EXPLAIN SELECT productCode, productName, productPrice FROM products WHERE produc
 CREATE INDEX i_products ON products(productName,productPrice);
 EXPLAIN SELECT productCode, productName, productPrice FROM products WHERE productName = 'iphone12' OR productPrice = '999';
 -- tạo view 
-CREATE VIEW v_products AS 
-SELECT  productCode, productName, productPrice, productStatus
-FROM products;
-SELECT * FROM v_products;
+CREATE VIEW v_products AS
+    SELECT 
+        productCode, productName, productPrice, productStatus
+    FROM
+        products;
+SELECT 
+    *
+FROM
+    v_products;
 -- sửa đổi view
 SET sql_safe_updates = 1;
 UPDATE v_products SET productName = "IPhone15" WHERE productName = "IPhone14";
@@ -63,7 +71,7 @@ CREATE PROCEDURE delete_products(IN p_id INT)
     BEGIN
     DELETE FROM products
     WHERE id = p_id;
-    END// 
+END //
 DELIMITER ;
 CALL delete_products(4);
 SELECT * FROM products;
