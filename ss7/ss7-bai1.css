@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+}
+#header{
+    background: gray;
+    height: 100px;
+    width: 100%;
+}
+#footer{
+    background: burlywood;
+    height: 300px;
+    width: 100%;
+    clear: both;
+}
