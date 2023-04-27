@@ -15,12 +15,12 @@ public class DiscountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String description = request.getParameter("description");
         float price = Float.parseFloat(request.getParameter("price"));
-        int discount_percent = Integer.parseInt(request.getParameter("discount"));
-        float discount = (float) (price*discount_percent*0.01);
+        int discountPercent = Integer.parseInt(request.getParameter("discount"));
+        float discount = (float) (price*discountPercent*0.01);
         float total = price - discount;
         request.setAttribute("mota",description);
         request.setAttribute("gia",price);
-        request.setAttribute("ptck",discount_percent);
+        request.setAttribute("ptck",discountPercent);
         request.setAttribute("ck",discount);
         request.setAttribute("tong",total);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("result.jsp");
