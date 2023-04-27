@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d95a177-fe0b-4c6f-8960-4d7b3af15f5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../ss10/ss10-bai2/ss10-bai2/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss9/ss9/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss9/ss9/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss9/ss9/src/main/java/Servlet/DiscountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss9/ss9/src/main/java/Servlet/DiscountServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +58,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hotruongan/Desktop/codegymdn/module3/ss10-bai2/ss10-bai2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -171,6 +170,9 @@
       <updated>1682569923812</updated>
       <workItem from="1682569925115" duration="6483000" />
       <workItem from="1682584090509" duration="604000" />
+      <workItem from="1682586353007" duration="46000" />
+      <workItem from="1682586409117" duration="10000" />
+      <workItem from="1682587880795" duration="22000" />
     </task>
     <servers />
   </component>
