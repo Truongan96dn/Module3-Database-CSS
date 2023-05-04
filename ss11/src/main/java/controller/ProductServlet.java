@@ -14,7 +14,7 @@ import java.util.List;
 @WebServlet(name = "ProductServlet", value = "/product")
 public class ProductServlet extends HttpServlet {
     private IProductService iProductService = new ProductService();
-    List<Product> productList = iProductService.getAll();
+    private List<Product> productList = iProductService.getAll();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,16 +23,16 @@ public class ProductServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
-            case "create": {
+            case "create":
                 request.getRequestDispatcher("/create_product.jsp");
                 break;
-            }
-            case "delete": {
+
+            case "delete":
                 int idDelete = Integer.parseInt(request.getParameter("id"));
                 iProductService.deleteProduct(idDelete);
                 response.sendRedirect("/product");
                 break;
-            }
+
             case "update":
                 int id = Integer.parseInt(request.getParameter("id"));
                 for (int i = 0; i < productList.size(); i++) {
@@ -80,13 +80,14 @@ public class ProductServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
-            case "create": {
+            case "create":
                 createProduct(request, response);
                 break;
-            }
             case "update":
                 updateProduct(request, response);
                 break;
+            default:
+                request.getRequestDispatcher("/error.jsp").forward(request,response);
 
         }
     }
