@@ -1,0 +1,71 @@
+.c-image {
+    width: 10%;
+    height: 10%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.position-absolute {
+    top: 50%;
+    height: 10%;
+}
+
+.po {
+    width: 30%;
+    padding: 20px;
+    top: 30%;
+    font-size: xx-large;
+}
+
+.text-laptop {
+    top: 20%;
+    padding: 20px;
+}
+
+.text-p {
+    padding: 50px;
+    font-size: xx-large;
+}
+
+.product-one {
+    padding: 20px;
+    top: 70%;
+    font-size: x-large;
+}
+
+.text-decoration-none {
+    color: black;
+    margin: 30px;
+}
+
+.pa img {
+    max-width: 25%;
+    height: auto;
+}
+
+.color-paragraph {
+    color: #1867B8;
+    font-size: x-large;
+
+}
+
+.pcs {
+    padding: 50px;
+    font-size: xx-large;
+}
+
+.product {
+    padding: 20px;
+}
+
+.form-check {
+    margin: 20px;
+}
+
+.laptop {
+    padding: 50px;
+    font-size: xx-large;
+}
