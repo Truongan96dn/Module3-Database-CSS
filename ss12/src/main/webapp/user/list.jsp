@@ -23,12 +23,11 @@
     <h2>
         <button type="button" onclick="window.location.href='/UserServlet?action=create'" class="btn btn-primary">ADD NEW USER</button>
     </h2>
-<form action="">
-    <label>
-        <button type="submit" class="btn btn-primary" onclick="window.location.href = '/UserServlet?action=search'">Search</button>
-        <input type="text" name="name" class="form-control">
-    </label>
+<form action="/UserServlet?action=search" method="post">
+    <input name="search" type="text" placeholder=" country's name">
+    <button class="btn btn-outline-info">Search</button>
 </form>
+<button class="btn btn-outline-dark" onclick="window.location.href='/UserServlet?action=sortByName'"> Sort by name</button>
 <div align="center">
     <table class="table table-striped">
         <h2>List of Users</h2>

@@ -4,13 +4,16 @@ import com.codegym.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class UserDAO  implements IUserDAO{
+public class UserDAO implements IUserDAO {
+
+
     private String jdbcURL = "jdbc:mysql://localhost:3306/demo";
     private String jdbcUsername = "root";
     private String jdbcPassword = "hotruongan123";
-
+    private static final String FIND_BY_COUNTRY = "SELECT * FROM users WHERE country LIKE ?;";
     private static final String INSERT_USERS_SQL = "INSERT INTO users (name, email, country) VALUES (?, ?, ?);";
     private static final String SELECT_USER_BY_ID = "select id,name,email,country from users where id =?";
     private static final String SELECT_ALL_USERS = "select * from users";
@@ -19,6 +22,7 @@ public class UserDAO  implements IUserDAO{
 
     public UserDAO() {
     }
+
     protected Connection getConnection() {
         Connection connection = null;
         try {
@@ -31,6 +35,7 @@ public class UserDAO  implements IUserDAO{
         }
         return connection;
     }
+
     @Override
     public void insertUser(User user) throws SQLException {
         System.out.println(INSERT_USERS_SQL);
@@ -125,5 +130,49 @@ public class UserDAO  implements IUserDAO{
             rowUpdated = statement.executeUpdate() > 0;
         }
         return rowUpdated;
+    }
+
+    public List<User> findByCountry(String country) throws SQLException {
+        List<User> userList = new ArrayList<>();
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_COUNTRY);
+        System.out.println(preparedStatement);
+        preparedStatement.setString(1, "%" + country + "%");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
+            String email = resultSet.getString("email");
+            String countries = resultSet.getString("country");
+            userList.add(new User(id, name, email, countries));
+        }
+        return userList;
+
+    }
+
+    public List<User> sortByName() {
+        List<User> users = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String country = rs.getString("country");
+                users.add(new User(id, name, email, country));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        users.sort(new Comparator<User>() {
+            @Override
+            public int compare(User o1, User o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+
+        return users;
     }
 }

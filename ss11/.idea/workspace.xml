@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="795f890e-d89e-4b4f-a574-114c3b3b6244" name="Changes" comment="commit">
       <change beforePath="$PROJECT_DIR$/../ss12/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss12/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss12/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss12/src/main/webapp/user/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/src/main/webapp/user/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss12/src/main/webapp/user/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/src/main/webapp/user/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/src/main/java/com/codegym/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/src/main/java/com/codegym/controller/UserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss12/src/main/webapp/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/src/main/webapp/user/list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,20 +56,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/hotruongan/Desktop/codegymdn/module3/ss11",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hotruongan/Desktop/codegymdn/module3/ss11&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp" />
@@ -178,7 +175,8 @@
       <workItem from="1682651524843" duration="21172000" />
       <workItem from="1682693445613" duration="6864000" />
       <workItem from="1682742466417" duration="10188000" />
-      <workItem from="1683205614451" duration="298000" />
+      <workItem from="1683205614451" duration="833000" />
+      <workItem from="1683206488732" duration="737000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1682693889154</created>
