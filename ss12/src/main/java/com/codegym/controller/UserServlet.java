@@ -41,6 +41,9 @@ public class UserServlet extends HttpServlet {
                 case "sortByName":
                     sortByName(userDAO.sortByName(), request, response);
                     break;
+                case "transaction":
+                    transactionUser(request, response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
@@ -49,7 +52,10 @@ public class UserServlet extends HttpServlet {
             throw new ServletException(ex);
         }
     }
-
+    private void transactionUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("transaction.jsp");
+        dispatcher.forward(request, response);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -70,12 +76,25 @@ public class UserServlet extends HttpServlet {
                         String country = request.getParameter("search");
                         sortByName(userDAO.findByCountry(country), request, response);
                         break;
+                    case "transaction":
+                        insertUserTransaction(request, response);
+                        break;
 
                 }
             } catch (SQLException ex) {
                 throw new ServletException(ex);
             }
         }
+    }
+    private void insertUserTransaction(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        User newUser = new User(name, email, country);
+        userDAO.transaction(newUser);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("transaction.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void listUser(HttpServletRequest request, HttpServletResponse response)

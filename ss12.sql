@@ -10,3 +10,13 @@ create table users (
 );
 insert into users(name, email, country) values('Minh','minh@codegym.vn','Viet Nam');
 insert into users(name, email, country) values('Kante','kante@che.uk','Kenia');
+DELIMITER //
+CREATE PROCEDURE showList()
+BEGIN
+    SELECT * FROM users;
+END
+    //
+DELIMITER ;
+  CALL showList();
+
+
