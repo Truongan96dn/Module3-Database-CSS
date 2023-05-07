@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserService implements IUserService{
-    IUserDAO userDAO = new UserDAO();
+    private IUserDAO userDAO = new UserDAO();
 
     @Override
     public void insertUser(User user) throws SQLException {
