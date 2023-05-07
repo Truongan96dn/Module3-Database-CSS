@@ -18,5 +18,19 @@ END
     //
 DELIMITER ;
   CALL showList();
+DELIMITER //
+CREATE PROCEDURE update_user()
+BEGIN
+    SELECT * FROM users;
+END
+    //
+DELIMITER ;
 
+DELIMITER //
+CREATE PROCEDURE delete_user(IN deleteID INT)
+BEGIN
+    DELETE FROM users WHERE users.id= deleteID;
+END
+    //
+DELIMITER ;
 

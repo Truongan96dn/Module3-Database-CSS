@@ -1,11 +1,11 @@
-package com.codegym.dao;
+package com.codegym.service;
 
 import com.codegym.model.User;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IUserDAO {
+public interface IUserService {
     public void insertUser(User user) throws SQLException;
 
     public User selectUser(int id);

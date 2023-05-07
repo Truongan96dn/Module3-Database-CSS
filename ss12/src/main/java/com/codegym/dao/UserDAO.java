@@ -22,6 +22,8 @@ public class UserDAO implements IUserDAO {
     private static final String SELECT_USER_SP = "CALL showList();";
     private static final String UPDATE_USER_SP = "CALL update_user(?,?,?,?);";
     private static final String DELETE_BY_ID_SP = "CALL delete_user(?);";
+    private static final String SORT_BY_NAME = "SELECT * FROM users AS u ORDER BY u.name ASC;";
+
 
     public UserDAO() {
     }
@@ -172,50 +174,52 @@ public class UserDAO implements IUserDAO {
         return rowDeleted;
     }
 
-
-    public List<User> findByCountry(String country) throws SQLException {
+    @Override
+    public List<User> findByCountry(String country) {
         List<User> userList = new ArrayList<>();
         Connection connection = getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_COUNTRY);
-        System.out.println(preparedStatement);
-        preparedStatement.setString(1, "%" + country + "%");
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()) {
-            int id = resultSet.getInt("id");
-            String name = resultSet.getString("name");
-            String email = resultSet.getString("email");
-            String countries = resultSet.getString("country");
-            userList.add(new User(id, name, email, countries));
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(FIND_BY_COUNTRY);
+            System.out.println(preparedStatement);
+            preparedStatement.setString(1, "%" + country + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String countries = resultSet.getString("country");
+                userList.add(new User(id, name, email, countries));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return userList;
 
     }
 
+    @Override
     public List<User> sortByName() {
         List<User> users = new ArrayList<>();
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SORT_BY_NAME);) {
             System.out.println(preparedStatement);
-            ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String country = rs.getString("country");
-                users.add(new User(id, name, email, country));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String countryQuery = resultSet.getString("country");
+                User user = new User(id, name, email, countryQuery);
+                users.add(user);
             }
+            return users;
         } catch (SQLException e) {
-            printSQLException(e);
+            e.printStackTrace();
         }
-        users.sort(new Comparator<User>() {
-            @Override
-            public int compare(User o1, User o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        });
-
-        return users;
+        return null;
     }
+
     @Override
     public boolean updateUser(User user) throws SQLException {
         boolean rowUpdated;
@@ -232,20 +236,18 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public String transaction(User user) {
+    public String createWithTransaction(User user) {
         String msg = "OK, transaction successfully!";
         Connection connection = getConnection();
-        Savepoint savepoint1= null;
-        Savepoint savepoint2= null;
         try {
             connection.setAutoCommit(false);
-            PreparedStatement preparedStatement =connection.prepareStatement(INSERT_USERS_SQL);
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getCountry());
             System.out.println(preparedStatement);
-            int rowAffect= preparedStatement.executeUpdate();
-            if (rowAffect >0) {
+            int rowAffect = preparedStatement.executeUpdate();
+            if (rowAffect > 0) {
                 connection.commit();
             } else {
                 msg = "rollback try";

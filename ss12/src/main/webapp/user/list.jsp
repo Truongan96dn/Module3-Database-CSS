@@ -23,6 +23,9 @@
     <h2>
         <button type="button" onclick="window.location.href='/UserServlet?action=create'" class="btn btn-primary">ADD NEW USER</button>
     </h2>
+<h2>
+    <button type="button" onclick="window.location.href='/UserServlet?action=transact'" class="btn btn-primary">ADD NEW USER WITH TRANSACTION</button>
+</h2>
 <form action="/UserServlet?action=search" method="post">
     <input name="search" type="text" placeholder=" country's name">
     <button class="btn btn-outline-info">Search</button>
